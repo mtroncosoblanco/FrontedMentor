@@ -128,25 +128,23 @@
         showError('email', 'Introduce un email valido');
         isValid = false;
       }
-      
-      // Valida Query Type
+
+      //validacion y mensajes de error
       const queryType = document.querySelector('input[name="queryType"]:checked');
       if (!queryType) {
-        showError('queryType', 'Please select a query type');
+        showError('queryType', 'Por favor, selecciona un tipo de consulta');
         isValid = false;
       }
       
-      // Valida Mensaje
       const message = document.getElementById('message');
       if (!message.value.trim()) {
         showError('message', 'Rellena este campo');
         isValid = false;
       }
       
-      // Valida Consentimiento
       const consent = document.getElementById('consent');
       if (!consent.checked) {
-        showError('consent', 'To submit this form, please consent to being contacted');
+        showError('consent', 'Debes dar tu consentimiento para ser contactado');
         isValid = false;
       }
       
@@ -159,15 +157,18 @@
       }
     });
 
-    function showError(fieldName, message) {
-      const errorElement = document.getElementById(fieldName + '-error');
-      const fieldElement = document.getElementById(fieldName) || document.querySelector(`input[name="${fieldName}"]`);
-      
-      errorElement.textContent = message;
-      errorElement.classList.add('show');
-      
+
+    function showError(fieldName, maessage){
+        const errorElement = document.getElementById(fieldName + '-error');
+        const fieldElement = document.getElementById(fieldName) || document.querySelector(`input[name="${fieldName}"]`);
+
+        errorElement.textContent = message;
+        errorElement.classList.add('show');
+
       if (fieldElement) {
-        fieldElement.closest('.form-group, .radio-group, .checkbox-group').classList.add('error');
+        const group = fieldElement.closest('.form-group, .radio-group, .checkbox-group');
+      if (group) group.classList.add('error');
+        fieldElement.setAttribute('aria-invalid', 'true');
       }
     }
 
