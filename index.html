@@ -64,7 +64,7 @@
       <div class="checkbox-group">
         <div class="checkbox-option">
           <input type="checkbox" id="consent" name="consent" required aria-describedby="consent-error">
-          <label for="consent" class="checkbox-label required"></label>
+          <label for="consent" class="checkbox-label required">Doy mi consentimiento para que el equipo se ponga en contacto conmigo </label>
         </div>
         <div class="error-message" id="consent-error" role="alert"></div>
       </div>
@@ -136,7 +136,7 @@
       
       const consent = document.getElementById('consent');
       if (!consent.checked) {
-        showError('consent', 'Debes dar tu consentimiento para ser contactado');
+        showError('consent', 'Debes dar tu consentimiento');
         isValid = false;
       }
       
@@ -208,16 +208,6 @@
         e.target.click();
       }
     });
-
-    /*document.querySelectorAll('input, textarea, button').forEach(element => {
-      element.addEventListener('focus', function() {
-        this.closest('.form-group, .radio-option, .checkbox-option')?.style.setProperty('outline', '2px solid #198754', 'important');
-      });
-      
-      element.addEventListener('blur', function() {
-        this.closest('.form-group, .radio-option, .checkbox-option')?.style.removeProperty('outline');
-      });
-    });*/
   </script>
   
   <!--<div class="attribution">

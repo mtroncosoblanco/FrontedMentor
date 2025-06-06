@@ -55,6 +55,7 @@ button:focus {
 }
 
 #toast {
+  position: fixed;
   bottom: 5px;
   right: 5px;
   background: #28a745;
