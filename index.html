@@ -52,14 +52,14 @@
           </div>
           <div class="radio-option">
             <input type="radio" id="support" name="queryType" value="support" required>
-            <label for="support">Support Request</label>
+            <label for="support">Solicitud de soporte</label>
           </div>
         </div>
         <div class="error-message" id="queryType-error" role="alert"></div>
       </div>
 
       <div class="form-group full-width">
-        <label for="message" class="required">Message</label>
+        <label for="message" class="required">Mensaje</label>
         <textarea id="message" name="message" required aria-describedby="message-error"></textarea>
         <div class="error-message" id="message-error" role="alert"></div>
       </div>
@@ -67,12 +67,12 @@
       <div class="checkbox-group">
         <div class="checkbox-option">
           <input type="checkbox" id="consent" name="consent" required aria-describedby="consent-error">
-          <label for="consent" class="checkbox-label required">I consent to being contacted by the team</label>
+          <label for="consent" class="checkbox-label required">Doy mi consentimiento para que el equipo se ponga en contacto conmigo </label>
         </div>
         <div class="error-message" id="consent-error" role="alert"></div>
       </div>
 
-      <button type="submit" class="submit-btn">Submit</button>
+      <button type="submit" class="submit-btn">Enviar</button>
     </form>
 
     <div class="toast" id="toast" role="alert" aria-live="assertive">
@@ -99,30 +99,27 @@
       });
     });
 
-    // Form validation and submission
     form.addEventListener('submit', function(e) {
       e.preventDefault();
       
-      // Clear previous errors
       clearErrors();
-      
       let isValid = true;
       
-      // Validate First Name
+      // Valida nombre
       const firstName = document.getElementById('firstName');
       if (!firstName.value.trim()) {
         showError('firstName', 'This field is required');
         isValid = false;
       }
       
-      // Validate Last Name
+      // Valida apellido
       const lastName = document.getElementById('lastName');
       if (!lastName.value.trim()) {
         showError('lastName', 'Rellena este campo');
         isValid = false;
       }
       
-      // Validate Email
+      // Valida Email
       const email = document.getElementById('email');
       if (!email.value.trim()) {
         showError('email', 'Rellena este campo');
@@ -132,21 +129,21 @@
         isValid = false;
       }
       
-      // Validate Query Type
+      // Valida Query Type
       const queryType = document.querySelector('input[name="queryType"]:checked');
       if (!queryType) {
         showError('queryType', 'Please select a query type');
         isValid = false;
       }
       
-      // Validate Message
+      // Valida Mensaje
       const message = document.getElementById('message');
       if (!message.value.trim()) {
         showError('message', 'Rellena este campo');
         isValid = false;
       }
       
-      // Validate Consent
+      // Valida Consentimiento
       const consent = document.getElementById('consent');
       if (!consent.checked) {
         showError('consent', 'To submit this form, please consent to being contacted');
@@ -154,11 +151,8 @@
       }
       
       if (isValid) {
-        // Show success toast
         showToast();
-        // Reset form
         form.reset();
-        // Clear radio selection visual
         document.querySelectorAll('.radio-option').forEach(option => {
           option.classList.remove('selected');
         });
@@ -201,14 +195,12 @@
       }, 4000);
     }
 
-    // Keyboard navigation enhancement
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Enter' && e.target.type === 'radio') {
         e.target.click();
       }
     });
 
-    // Focus management for better accessibility
     document.querySelectorAll('input, textarea, button').forEach(element => {
       element.addEventListener('focus', function() {
         this.closest('.form-group, .radio-option, .checkbox-option')?.style.setProperty('outline', '2px solid #198754', 'important');
@@ -220,9 +212,9 @@
     });
   </script>
   
-  <div class="attribution">
+  <!--<div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
     Coded by <a href="#">Maria Troncoso</a>.
-  </div>
+  </div>-->
 </body>
 </html>
