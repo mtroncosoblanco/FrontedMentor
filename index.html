@@ -10,12 +10,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="style.css">
   
-  <title>Contact form</title>
+  <title>Formulario de contacto</title>
 
-  <!--<style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>-->
 </head>
 
 <body>
@@ -89,7 +85,6 @@
     const form = document.getElementById('contactForm');
     const toast = document.getElementById('toast');
 
-    // Radio button selection visual feedback
     document.querySelectorAll('input[name="queryType"]').forEach(radio => {
       radio.addEventListener('change', function() {
         document.querySelectorAll('.radio-option').forEach(option => {
@@ -105,31 +100,27 @@
       clearErrors();
       let isValid = true;
       
-      // Valida nombre
       const firstName = document.getElementById('firstName');
       if (!firstName.value.trim()) {
-        showError('firstName', 'This field is required');
+        showError('firstName', 'Campo requerido');
         isValid = false;
       }
       
-      // Valida apellido
       const lastName = document.getElementById('lastName');
       if (!lastName.value.trim()) {
-        showError('lastName', 'Rellena este campo');
+        showError('lastName', 'Campo requerido');
         isValid = false;
       }
       
-      // Valida Email
       const email = document.getElementById('email');
       if (!email.value.trim()) {
-        showError('email', 'Rellena este campo');
+        showError('email', 'Campo requerido');
         isValid = false;
       } else if (!isValidEmail(email.value.trim())) {
         showError('email', 'Introduce un email valido');
         isValid = false;
       }
 
-      //validacion y mensajes de error
       const queryType = document.querySelector('input[name="queryType"]:checked');
       if (!queryType) {
         showError('queryType', 'Por favor, selecciona un tipo de consulta');
@@ -160,16 +151,19 @@
 
     function showError(fieldName, maessage){
         const errorElement = document.getElementById(fieldName + '-error');
-        const fieldElement = document.getElementById(fieldName) || document.querySelector(`input[name="${fieldName}"]`);
+        const fieldElement = document.getElementById(fieldName) || 
+          document.querySelector(`input[name="${fieldName}"]`);
 
+      if (errorElement) {
         errorElement.textContent = message;
         errorElement.classList.add('show');
+      }
 
       if (fieldElement) {
         const group = fieldElement.closest('.form-group, .radio-group, .checkbox-group');
-      if (group) group.classList.add('error');
-        fieldElement.setAttribute('aria-invalid', 'true');
-      }
+        if (group) group.classList.add('error');
+          fieldElement.setAttribute('aria-invalid', 'true');
+        }
     }
 
     function clearErrors() {
