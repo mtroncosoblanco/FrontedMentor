@@ -183,15 +183,15 @@
       return emailRegex.test(email);
     }
 
-    /*function showToast() {
+    function showToast() {
       toast.classList.add('show');
       
       setTimeout(() => {
         toast.classList.remove('show');
       }, 5000);
-    }*/
+    }
 
-    function showToast(message = "Mensaje enviado correctamente") {
+    /*function showToast(message = "Mensaje enviado correctamente") {
       const toastMessage = toast.querySelector('h3');
     if (toastMessage) {
       toastMessage.textContent = message;
@@ -201,7 +201,7 @@
     setTimeout(() => {
       toast.classList.remove('show');
     }, 3000);
-    }
+    }*/
 
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Enter' && e.target.type === 'radio') {
