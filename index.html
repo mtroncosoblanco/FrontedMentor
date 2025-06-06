@@ -141,7 +141,7 @@
       }
       
       if (isValid) {
-        showToast();
+        showToast("Formulario enviado correctamente");
         form.reset();
         document.querySelectorAll('.radio-option').forEach(option => {
           option.classList.remove('selected');
@@ -183,12 +183,24 @@
       return emailRegex.test(email);
     }
 
-    function showToast() {
+    /*function showToast() {
       toast.classList.add('show');
       
       setTimeout(() => {
         toast.classList.remove('show');
-      }, 4000);
+      }, 5000);
+    }*/
+
+    function showToast(message = "Mensaje enviado correctamente") {
+      const toastMessage = toast.querySelector('h3');
+    if (toastMessage) {
+      toastMessage.textContent = message;
+    }
+    toast.classList.add('show');
+
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 4000);
     }
 
     document.addEventListener('keydown', function(e) {
