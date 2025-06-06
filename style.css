@@ -55,13 +55,12 @@ button:focus {
 }
 
 #toast {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 5px;
+  right: 5px;
   background: #28a745;
   color: white;
   padding: 1rem;
-  border-radius: 8px;
+  border-radius: 2px;
   display: none;
 }
 
