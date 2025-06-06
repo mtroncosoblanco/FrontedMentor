@@ -188,20 +188,8 @@
       
       setTimeout(() => {
         toast.classList.remove('show');
-      }, 5000);
+      }, 3000);
     }
-
-    /*function showToast(message = "Mensaje enviado correctamente") {
-      const toastMessage = toast.querySelector('h3');
-    if (toastMessage) {
-      toastMessage.textContent = message;
-    }
-    toast.classList.add('show');
-
-    setTimeout(() => {
-      toast.classList.remove('show');
-    }, 3000);
-    }*/
 
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Enter' && e.target.type === 'radio') {
