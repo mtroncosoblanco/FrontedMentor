@@ -2,22 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   
-  <title>Frontend Mentor | Contact form</title>
+  <title>Contact form</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
+  <!--<style>
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  </style>-->
 </head>
 
 <body>
@@ -27,30 +25,30 @@
       
       <div class="form-row">
         <div class="form-group">
-          <label for="firstName" class="required">First Name</label>
+          <label for="firstName" class="required">Nombre</label>
           <input type="text" id="firstName" name="firstName" required aria-describedby="firstName-error">
           <div class="error-message" id="firstName-error" role="alert"></div>
         </div>
         
         <div class="form-group">
-          <label for="lastName" class="required">Last Name</label>
+          <label for="lastName" class="required">Apellido</label>
           <input type="text" id="lastName" name="lastName" required aria-describedby="lastName-error">
           <div class="error-message" id="lastName-error" role="alert"></div>
         </div>
       </div>
 
       <div class="form-group full-width">
-        <label for="email" class="required">Email Address</label>
+        <label for="email" class="required">Email</label>
         <input type="email" id="email" name="email" required aria-describedby="email-error">
         <div class="error-message" id="email-error" role="alert"></div>
       </div>
 
       <div class="radio-group">
-        <label class="radio-group-label required">Query Type</label>
+        <label class="radio-group-label required">Tipo de consulta</label>
         <div class="radio-options" role="radiogroup" aria-describedby="queryType-error">
           <div class="radio-option">
             <input type="radio" id="general" name="queryType" value="general" required>
-            <label for="general">General Enquiry</label>
+            <label for="general">General</label>
           </div>
           <div class="radio-option">
             <input type="radio" id="support" name="queryType" value="support" required>
@@ -82,8 +80,7 @@
         <svg class="toast-icon" viewBox="0 0 20 20" fill="currentColor">
           <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
         </svg>
-        <h3>Message Sent!</h3>
-        <p>Thanks for completing the form. We'll be in touch soon!</p>
+        <h3>Mensaje enviado</h3>
       </div>
     </div>
   </div>
@@ -121,17 +118,17 @@
       // Validate Last Name
       const lastName = document.getElementById('lastName');
       if (!lastName.value.trim()) {
-        showError('lastName', 'This field is required');
+        showError('lastName', 'Rellena este campo');
         isValid = false;
       }
       
       // Validate Email
       const email = document.getElementById('email');
       if (!email.value.trim()) {
-        showError('email', 'This field is required');
+        showError('email', 'Rellena este campo');
         isValid = false;
       } else if (!isValidEmail(email.value.trim())) {
-        showError('email', 'Please enter a valid email address');
+        showError('email', 'Introduce un email valido');
         isValid = false;
       }
       
@@ -145,7 +142,7 @@
       // Validate Message
       const message = document.getElementById('message');
       if (!message.value.trim()) {
-        showError('message', 'This field is required');
+        showError('message', 'Rellena este campo');
         isValid = false;
       }
       
